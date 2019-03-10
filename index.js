@@ -15,7 +15,7 @@ let draw_radius_delta = 75;
 let draw_variance_init = 400;
 let draw_variance_delta = 300;
 
-let palette = tome.get('rag-belur');
+let palette = tome.getRandom();
 let bg_color = palette.background ? palette.background : '#d5cda1';
 
 let sketch = function(p) {

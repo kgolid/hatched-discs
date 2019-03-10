@@ -327,8 +327,8 @@
     return p;
   });
 
-  function get(name) {
-    return palettes$1.find(pal => pal.name == name);
+  function getRandom() {
+    return palettes$1[Math.floor(Math.random() * palettes$1.length)];
   }
 
   let n = 70;
@@ -345,7 +345,7 @@
   let draw_variance_init = 400;
   let draw_variance_delta = 300;
 
-  let palette = get('rag-belur');
+  let palette = getRandom();
   let bg_color = palette.background ? palette.background : '#d5cda1';
 
   let sketch = function(p) {
