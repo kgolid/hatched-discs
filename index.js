@@ -1,7 +1,7 @@
 import roughLine from './graphite.js';
 import * as tome from 'chromotome';
 
-let n = 70;
+let n = 50;
 let number_of_rings = 10;
 let rings = [];
 let ring_dimensions;
@@ -9,11 +9,11 @@ let ring_dimensions;
 let noise_radius_init = 0.06;
 let noise_radius_delta = 0.02;
 
-let draw_radius_init = 100;
-let draw_radius_delta = 75;
+let draw_radius_init = 50;
+let draw_radius_delta = 35;
 
-let draw_variance_init = 400;
-let draw_variance_delta = 300;
+let draw_variance_init = 200;
+let draw_variance_delta = 150;
 
 let palette = tome.getRandom();
 let bg_color = palette.background ? palette.background : '#d5cda1';
@@ -22,11 +22,11 @@ let sketch = function(p) {
   let THE_SEED;
 
   p.setup = function() {
-    p.createCanvas(2400, 2400);
+    p.createCanvas(1200, 1200);
     THE_SEED = p.floor(p.random(9999999));
     p.randomSeed(THE_SEED);
     p.noLoop();
-    p.strokeWeight(3);
+    p.strokeWeight(1);
     p.noFill();
   };
 
@@ -34,22 +34,23 @@ let sketch = function(p) {
     p.background(bg_color);
     const rows = 4;
     p.push();
+    p.translate(200);
     for (let i = 0; i < rows; i++) {
-      p.translate(0, 300);
+      p.translate(0, 150);
       setup_disc();
       draw_disc(0, 0);
       setup_disc();
       draw_disc(p.width / 2, 0);
       setup_disc();
       draw_disc(p.width, 0);
-      p.translate(0, 300);
+      p.translate(0, 150);
       setup_disc();
       draw_disc((3 * p.width) / 4, 0);
       setup_disc();
       draw_disc(p.width / 4, 0);
     }
     p.pop();
-    draw_frame(200);
+    draw_frame(100);
   };
 
   function draw_disc(cx, cy) {
