@@ -12,6 +12,7 @@
   "keywords": [],
   "description": "",
   "browser": "dist/index.js",
+  "browser_radial": "dist/index_radial.js",
   "dependencies": {
     "chance": "1.0.18",
     "chromotome": "^1.5.2",
