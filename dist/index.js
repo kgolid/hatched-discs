@@ -277,6 +277,99 @@
     }
   ];
 
+  var ducci = [
+    {
+      name: 'ducci_jb',
+      colors: ['#395e54', '#e77b4d', '#050006', '#e55486'],
+      stroke: '#050006',
+      background: '#efe0bc'
+    },
+    {
+      name: 'ducci_a',
+      colors: ['#809498', '#d3990e', '#000000', '#ecddc5'],
+      stroke: '#ecddc5',
+      background: '#863f52'
+    },
+    {
+      name: 'ducci_b',
+      colors: ['#ecddc5', '#79b27b', '#000000', '#ac6548'],
+      stroke: '#ac6548',
+      background: '#d5c08e'
+    },
+    {
+      name: 'ducci_d',
+      colors: ['#f3cb4d', '#f2f5e3', '#20191b', '#67875c'],
+      stroke: '#67875c',
+      background: '#433d5f'
+    },
+    {
+      name: 'ducci_e',
+      colors: ['#c37c2b', '#f6ecce', '#000000', '#386a7a'],
+      stroke: '#386a7a',
+      background: '#e3cd98'
+    },
+    {
+      name: 'ducci_f',
+      colors: ['#596f7e', '#eae6c7', '#463c21', '#f4cb4c'],
+      stroke: '#f4cb4c',
+      background: '#e67300'
+    },
+    {
+      name: 'ducci_g',
+      colors: ['#c75669', '#000000', '#11706a'],
+      stroke: '#11706a',
+      background: '#ecddc5'
+    },
+    {
+      name: 'ducci_h',
+      colors: ['#6b5c6e', '#4a2839', '#d9574a'],
+      stroke: '#d9574a',
+      background: '#ffc34b'
+    },
+    {
+      name: 'ducci_i',
+      colors: ['#e9dcad', '#143331', '#ffc000'],
+      stroke: '#ffc000',
+      background: '#a74c02'
+    },
+    {
+      name: 'ducci_j',
+      colors: ['#c47c2b', '#5f5726', '#000000', '#7e8a84'],
+      stroke: '#7e8a84',
+      background: '#ecddc5'
+    },
+    {
+      name: 'ducci_o',
+      colors: ['#c15e1f', '#e4a13a', '#000000', '#4d545a'],
+      stroke: '#4d545a',
+      background: '#dfc79b'
+    },
+    {
+      name: 'ducci_q',
+      colors: ['#4bae8c', '#d0c1a0', '#2d3538'],
+      stroke: '#2d3538',
+      background: '#d06440'
+    },
+    {
+      name: 'ducci_u',
+      colors: ['#f6d700', '#f2d692', '#000000', '#5d3552'],
+      stroke: '#5d3552',
+      background: '#ff7426'
+    },
+    {
+      name: 'ducci_v',
+      colors: ['#c65f75', '#d3990e', '#000000', '#597e7a'],
+      stroke: '#597e7a',
+      background: '#f6eccb'
+    },
+    {
+      name: 'ducci_x',
+      colors: ['#dd614a', '#f5cedb', '#1a1e4f'],
+      stroke: '#1a1e4f',
+      background: '#fbb900'
+    }
+  ];
+
   const palettes = [
     {
       name: 'frozen-rose',
@@ -320,68 +413,81 @@
     }
   ];
 
-  const pals = palettes.concat(ranganath, roygbivs, tundra, colourscafe, rohlfs);
+  const pals = palettes.concat(
+    ranganath,
+    roygbivs,
+    tundra,
+    colourscafe,
+    rohlfs,
+    ducci
+  );
 
   var palettes$1 = pals.map(p => {
     p.size = p.colors.length;
     return p;
   });
 
-  function getRandom() {
-    return palettes$1[Math.floor(Math.random() * palettes$1.length)];
+  function get(name) {
+    return palettes$1.find(pal => pal.name == name);
   }
 
-  let n = 50;
+  let n = 70;
   let number_of_rings = 10;
   let rings = [];
   let ring_dimensions;
+  let frame_dim = 80;
 
   let noise_radius_init = 0.06;
   let noise_radius_delta = 0.02;
 
-  let draw_radius_init = 50;
-  let draw_radius_delta = 35;
+  let draw_radius_init = 80;
+  let draw_radius_delta = 80;
 
-  let draw_variance_init = 200;
-  let draw_variance_delta = 150;
+  let draw_variance_init = 400;
+  let draw_variance_delta = 300;
 
-  let palette = getRandom();
+  let palette = get('ducci_h');
   let bg_color = palette.background ? palette.background : '#d5cda1';
 
   let sketch = function(p) {
     let THE_SEED;
 
     p.setup = function() {
-      p.createCanvas(1200, 1200);
+      p.createCanvas(2100, 2970);
       THE_SEED = p.floor(p.random(9999999));
       p.randomSeed(THE_SEED);
       p.noLoop();
-      p.strokeWeight(1);
+      p.strokeWeight(3);
       p.noFill();
     };
 
     p.draw = function() {
       p.background(bg_color);
+      draw_v1();
+      draw_frame(frame_dim);
+    };
+
+    function draw_v1() {
       const rows = 4;
       p.push();
-      p.translate(200);
+      p.translate(0, 1000);
       for (let i = 0; i < rows; i++) {
-        p.translate(0, 150);
+        p.translate(0, 350);
         setup_disc();
         draw_disc(0, 0);
         setup_disc();
         draw_disc(p.width / 2, 0);
         setup_disc();
         draw_disc(p.width, 0);
-        p.translate(0, 150);
+
+        p.translate(0, 350);
         setup_disc();
         draw_disc((3 * p.width) / 4, 0);
         setup_disc();
         draw_disc(p.width / 4, 0);
       }
       p.pop();
-      draw_frame(100);
-    };
+    }
 
     function draw_disc(cx, cy) {
       p.push();
@@ -474,7 +580,7 @@
       p.noFill();
       p.stroke(palette.colors[p.floor(p.random(palette.colors.length))]);
       for (let j = 1; j < rings.length; j++) {
-        if (p.random() < 0.2)
+        if (p.random() < 0.3)
           p.stroke(palette.colors[p.floor(p.random(palette.colors.length))]);
         const inner = rings[j - 1];
         for (let i = 1; i < inner.length; i++) {
