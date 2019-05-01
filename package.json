@@ -14,7 +14,7 @@
   "browser": "dist/index.js",
   "dependencies": {
     "chance": "1.0.18",
-    "chromotome": "^1.4.4",
+    "chromotome": "^1.5.2",
     "justeer": "1.1.3"
   },
   "devDependencies": {
