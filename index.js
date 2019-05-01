@@ -1,4 +1,4 @@
-import roughLine from './graphite.js';
+import { roughLine } from './graphite.js';
 import * as tome from 'chromotome';
 
 let n = 50;
