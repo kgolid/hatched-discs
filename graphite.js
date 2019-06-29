@@ -44,7 +44,9 @@ function pointOnCircle(pnts, radius, offset) {
 }
 
 export function roughCurveLine(a, b) {
-  let start = { a: a, cp1: null, cp2: null };
+  let step = 200 * (Math.random() * 0.5 + 1);
+  let start_cp = point_at_distance_towards_direction(a, step / 2.9, b);
+  let start = { a: a, cp1: null, cp2: start_cp };
   const points = [start];
 
   while (dist(points[points.length - 1].a, b) != 0 && points.length < max) {
