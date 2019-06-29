@@ -23,7 +23,9 @@ let sketch = function(p) {
   let THE_SEED;
 
   p.setup = function() {
-    p.createCanvas(2100, 2970);
+    const canv = p.createCanvas(2100, 2970);
+    canv.style('height', '1000px');
+    canv.style('width', 'auto');
     THE_SEED = p.floor(p.random(9999999));
     p.randomSeed(THE_SEED);
     p.noLoop();
