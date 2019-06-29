@@ -29,7 +29,7 @@ let sketch = function(p) {
     canv.style('width', 'auto');
     THE_SEED = p.floor(p.random(9999999));
     p.randomSeed(THE_SEED);
-    p.frameRate(1);
+    p.frameRate(2);
     p.strokeWeight(3);
     p.noFill();
     initial_state();
