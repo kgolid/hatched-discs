@@ -6,6 +6,7 @@ let number_of_rings = 10;
 let rings = [];
 let ring_dimensions;
 let frame_dim = 80;
+let ticks;
 
 let noise_radius_init = 0.06;
 let noise_radius_delta = 0.02;
@@ -16,8 +17,8 @@ let draw_radius_delta = 80;
 let draw_variance_init = 400;
 let draw_variance_delta = 300;
 
-let palette = tome.get('ducci_h');
-let bg_color = palette.background ? palette.background : '#d5cda1';
+let palette;
+let bg_color;
 
 let sketch = function(p) {
   let THE_SEED;
@@ -28,31 +29,41 @@ let sketch = function(p) {
     canv.style('width', 'auto');
     THE_SEED = p.floor(p.random(9999999));
     p.randomSeed(THE_SEED);
-    p.noLoop();
+    p.frameRate(1);
     p.strokeWeight(3);
     p.noFill();
+    initial_state();
   };
 
   p.draw = function() {
-    p.background(bg_color);
-    draw_v1();
+    if (ticks >= 8) {
+      initial_state();
+    }
+    draw_v1(ticks);
     draw_frame(frame_dim);
+    ticks++;
   };
 
-  function draw_v1() {
-    const rows = 4;
+  function initial_state() {
+    palette = tome.get();
+    bg_color = palette.background ? palette.background : '#d5cda1';
+    ticks = 0;
+
+    p.fill(bg_color);
+    p.rect(0, 0, p.width, p.height);
+  }
+
+  function draw_v1(i) {
     p.push();
-    p.translate(0, 1000);
-    for (let i = 0; i < rows; i++) {
-      p.translate(0, 350);
+    p.translate(0, 1350 + i * 350);
+    if (i % 2 == 0) {
       setup_disc();
       draw_disc(0, 0);
       setup_disc();
       draw_disc(p.width / 2, 0);
       setup_disc();
       draw_disc(p.width, 0);
-
-      p.translate(0, 350);
+    } else {
       setup_disc();
       draw_disc((3 * p.width) / 4, 0);
       setup_disc();

@@ -94,6 +94,61 @@
     return { a: next_a, cp1: next_cp1, cp2: next_cp2 };
   }
 
+  var misc = [
+    {
+      name: 'frozen-rose',
+      colors: ['#29368f', '#e9697b', '#1b164d', '#f7d996'],
+      background: '#f2e8e4'
+    },
+    {
+      name: 'winter-night',
+      colors: ['#122438', '#dd672e', '#87c7ca', '#ebebeb'],
+      background: '#ebebeb'
+    },
+    {
+      name: 'saami',
+      colors: ['#eab700', '#e64818', '#2c6393', '#eecfca'],
+      background: '#e7e6e4'
+    },
+    {
+      name: 'knotberry1',
+      colors: ['#20342a', '#f74713', '#686d2c', '#e9b4a6'],
+      background: '#e5ded8'
+    },
+    {
+      name: 'knotberry2',
+      colors: ['#1d3b1a', '#eb4b11', '#e5bc00', '#f29881'],
+      background: '#eae2d0'
+    },
+    {
+      name: 'tricolor',
+      colors: ['#ec643b', '#56b7ab', '#f8cb57', '#1f1e43'],
+      background: '#f7f2df'
+    },
+    {
+      name: 'foxshelter',
+      colors: ['#ff3931', '#007861', '#311f27', '#bab9a4'],
+      background: '#dddddd'
+    },
+    {
+      name: 'hermes',
+      colors: ['#253852', '#51222f', '#b53435', '#ecbb51'],
+      background: '#eeccc2'
+    },
+    {
+      name: 'olympia',
+      colors: ['#ff3250', '#ffb33a', '#008c36', '#0085c6', '#4c4c4c'],
+      stroke: '#0b0b0b',
+      background: '#faf2e5'
+    },
+    {
+      name: 'byrnes',
+      colors: ['#c54514', '#dca215', '#23507f'],
+      stroke: '#0b0b0b',
+      background: '#e8e7d4'
+    }
+  ];
+
   var colourscafe = [
     {
       name: 'cc239',
@@ -408,65 +463,112 @@
     }
   ];
 
-  const palettes = [
+  var judson = [
     {
-      name: 'frozen-rose',
-      colors: ['#29368f', '#e9697b', '#1b164d', '#f7d996'],
-      background: '#f2e8e4'
+      name: 'jud_playground',
+      colors: ['#f04924', '#fcce09', '#408ac9'],
+      stroke: '#2e2925',
+      background: '#ffffff'
     },
     {
-      name: 'winter-night',
-      colors: ['#122438', '#dd672e', '#87c7ca', '#ebebeb'],
-      background: '#ebebeb'
+      name: 'jud_horizon',
+      colors: ['#f8c3df', '#f2e420', '#28b3d0', '#648731', '#ef6a7d'],
+      stroke: '#030305',
+      background: '#f2f0e1'
     },
     {
-      name: 'saami',
-      colors: ['#eab700', '#e64818', '#2c6393', '#eecfca'],
-      background: '#e7e6e4'
+      name: 'jud_mural',
+      colors: ['#ca3122', '#e5af16', '#4a93a2', '#0e7e39', '#e2b9bd'],
+      stroke: '#1c1616',
+      background: '#e3ded8'
     },
     {
-      name: 'knotberry1',
-      colors: ['#20342a', '#f74713', '#686d2c', '#e9b4a6'],
-      background: '#e5ded8'
-    },
-    {
-      name: 'knotberry2',
-      colors: ['#1d3b1a', '#eb4b11', '#e5bc00', '#f29881'],
-      background: '#eae2d0'
-    },
-    {
-      name: 'tricolor',
-      colors: ['#ec643b', '#56b7ab', '#f8cb57', '#1f1e43'],
-      background: '#f7f2df'
-    },
-    {
-      name: 'foxshelter',
-      colors: ['#ff3931', '#007861', '#311f27', '#bab9a4'],
-      background: '#dddddd'
-    },
-    {
-      name: 'hermes',
-      colors: ['#253852', '#51222f', '#b53435', '#ecbb51'],
-      background: '#eeccc2'
+      name: 'jud_cabinet',
+      colors: ['#f0afb7', '#f6bc12', '#1477bb', '#41bb9b'],
+      stroke: '#020508',
+      background: '#e3ded8'
     }
   ];
 
-  const pals = palettes.concat(
+  var iivonen = [
+    {
+      name: 'iiso_zeitung',
+      colors: ['#ee8067', '#f3df76', '#00a9c0', '#f7ab76'],
+      stroke: '#111a17',
+      background: '#f5efcb'
+    },
+    {
+      name: 'iiso_curcuit',
+      colors: ['#f0865c', '#f2b07b', '#6bc4d2', '#1a3643'],
+      stroke: '#0f1417',
+      background: '#f0f0e8'
+    },
+    {
+      name: 'iiso_airlines',
+      colors: ['#fe765a', '#ffb468', '#4b588f', '#faf1e0'],
+      stroke: '#1c1616',
+      background: '#fae5c8'
+    },
+    {
+      name: 'iiso_daily',
+      colors: ['#e76c4a', '#f0d967', '#7f8cb6', '#1daeb1', '#ef9640'],
+      stroke: '#000100',
+      background: '#e2ded2'
+    }
+  ];
+
+  var kovecses = [
+    {
+      name: 'kov_01',
+      colors: ['#d24c23', '#7ba6bc', '#f0c667', '#ede2b3', '#672b35', '#142a36'],
+      stroke: '#132a37',
+      background: '#108266'
+    },
+    {
+      name: 'kov_02',
+      colors: ['#e8dccc', '#e94641', '#eeaeae'],
+      stroke: '#e8dccc',
+      background: '#6c96be'
+    },
+    {
+      name: 'kov_03',
+      colors: ['#e3937b', '#d93f1d', '#090d15', '#e6cca7'],
+      stroke: '#090d15',
+      background: '#558947'
+    },
+    {
+      name: 'kov_04',
+      colors: ['#d03718', '#292b36', '#33762f', '#ead7c9', '#ce7028', '#689d8d'],
+      stroke: '#292b36',
+      background: '#deb330'
+    },
+    {
+      name: 'kov_05',
+      colors: ['#de3f1a', '#de9232', '#007158', '#e6cdaf', '#869679'],
+      stroke: '#010006',
+      background: '#7aa5a6'
+    }
+  ];
+
+  const pals = misc.concat(
     ranganath,
     roygbivs,
     tundra,
     colourscafe,
     rohlfs,
-    ducci
+    ducci,
+    judson,
+    iivonen,
+    kovecses
   );
 
-  var palettes$1 = pals.map(p => {
+  var palettes = pals.map(p => {
     p.size = p.colors.length;
     return p;
   });
 
   function getRandom() {
-    return palettes$1[Math.floor(Math.random() * palettes$1.length)];
+    return palettes[Math.floor(Math.random() * palettes.length)];
   }
 
   let n = 70;
