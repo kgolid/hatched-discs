@@ -15,7 +15,7 @@
   "browser_radial": "dist/index_radial.js",
   "dependencies": {
     "chance": "1.0.18",
-    "chromotome": "^1.5.2",
+    "chromotome": "^1.8.1",
     "justeer": "1.1.3"
   },
   "devDependencies": {
